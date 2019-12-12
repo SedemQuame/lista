@@ -4,6 +4,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const db = require('./config/database.config');
 
 //====================================requiring custom user models====================================//
 const Todo = require('./models/list.models');
@@ -12,7 +13,7 @@ const Todo = require('./models/list.models');
 const app = express();
 
 // creating mongoose connection to db
-mongoose.connect('mongodb://localhost/lista', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(db.url, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));

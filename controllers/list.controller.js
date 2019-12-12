@@ -57,16 +57,16 @@ exports.findOne = (req, res) => {
 
 // update a db list items
 exports.updateOne = (req, res) => {
-    // Validate Request
-    if (!req.body.content) {
-        return res.status(400).send({
-            message: "Note content can not be empty"
-        });
-    }
+    // // Validate Request
+    // if (!req.params.content) {
+    //     return res.status(400).send({
+    //         message: "List content can not be empty"
+    //     });
+    // }
 
     List.findByIdAndUpdate(req.params.itemId, {
-            title: req.body.title || "Untitled Note",
-            content: req.body.content
+            item: req.params.itemTitle || "Untitled Note",
+            description: req.params.itemDescription || "No description"
         }, { new: true })
         .then(listItem => {
             if (!listItem) {
@@ -111,4 +111,20 @@ exports.deleteOne = (req, res) => {
 };
 
 // delete all db list items
-exports.deleteAll = (req, res) => {};
+exports.deleteAll = (req, res) => {
+    List.deleteMany({})
+        .then(listItems => {
+            if (listItems.ok == 1) {
+                res.send(listItems);
+            } else {
+                return res.status(404).send({
+                    message: "ClistItems not found " + req.params.itemId
+                });
+            }
+        })
+        .catch(err => {
+            return res.status(500).send({
+                message: "Could not delete listItem with id " + req.params.itemId
+            });
+        });
+};
