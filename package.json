@@ -1,0 +1,36 @@
+{
+  "name": "lista",
+  "version": "1.0.0",
+  "description": "todo item, manga updater, alarm and news vendor web app",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SedemQuame/lista.git"
+  },
+  "keywords": [
+    "todo",
+    "manga",
+    "news",
+    "alarms"
+  ],
+  "author": "Sedem Quame Amekpewu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SedemQuame/lista/issues"
+  },
+  "homepage": "https://github.com/SedemQuame/lista#readme"
+}
