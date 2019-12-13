@@ -1,0 +1,69 @@
+<!-- jshint esverion:6 -->
+<%- include('partials/header') -%>
+
+    <div class="jumbotron" id="hero-pane">
+
+        <form class="form-row">
+            <input class="form-control col-10" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success col-2" type="submit">Search</button>
+        </form>
+
+        <div class="row date-time" id="">
+            <div class="col-10 row">
+                <div class="col-2 day text-right">
+                    16
+                </div>
+                <div class="col-10 row">
+                    <div class="col-12 month text-left">
+                        December
+                    </div>
+                    <div class="col-12 year text-left">
+                        2019
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 text-left week-day">
+                Thursday
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container list-item" id="list-pane">
+        <p>Todo Header</p>
+        <div class="d-none d-md-block">
+            <% if (lists) { %>
+                <% for(let i = 0; i < lists.length; i++) { %>
+                    <div class="row list-item-pane">
+                        <div class="col-4">
+                            <%= lists[i].item %>
+                        </div>
+                        <div class="col-4">
+                            <%= lists[i].description %>
+                        </div>
+                        <div class="col-3">
+                            <%= lists[i].deadline %>
+                        </div>
+                        <form class="col-1" action="/update" method="get">
+                            <button type="submit" class="btn btn-success">
+                                        <img class="add-btn" src="./../assets/images/eye.svg" alt="add-item">
+                                </button>
+                        </form>
+                    </div>
+                    <% } %>
+                        <% } %>
+        </div>
+    </div>
+
+    <div class="add-item" id="add-pane">
+        <!-- <a href="#" class="">
+            <img class="add-btn" src="../assets/images/plus.svg" alt="add-item">
+        </a> -->
+        <form class="form" action="/create" method="GET">
+            <button type="submit" class="btn btn-success">
+                    <img class="add-btn" src="../assets/images/plus.svg" alt="add-item">
+            </button>
+        </form>
+    </div>
+
+    <%- include('partials/footer') -%>

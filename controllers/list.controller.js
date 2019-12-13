@@ -6,12 +6,13 @@ const List = require('../models/list.models');
 
 // create and save new list item
 exports.create = (req, res) => {
-    const itemTitle = req.params.item || 'Untitled';
-    const description = req.params.description || 'No description';
-    const deadline = req.params.deadline || '25-12-2019';
+
+    const itemTitle = req.body.item || 'Untitled';
+    const description = req.body.description || 'No description';
+    const deadline = req.body.deadline || '25-12-2019';
 
     List.create({ item: itemTitle, description: description, deadline: deadline }).then(list => {
-        res.send({ msg: 'doc creation successful' });
+        res.redirect('/list');
     }).catch(err => {
         res.send({ msg: 'doc creation failed' });
     });
@@ -22,8 +23,7 @@ exports.findAll = (req, res) => {
     List.find({}).
     then(list => {
         console.log(list);
-
-        res.send(list);
+        res.render(__dirname + './../public/views/list.views.ejs', { lists: list });
     }).
     catch(err => {
         res.status(500).send({
@@ -34,7 +34,7 @@ exports.findAll = (req, res) => {
 
 // return a db list items
 exports.findOne = (req, res) => {
-    List.findById(req.params.itemId).
+    List.findById(req.body._id).
     then(listItem => {
         if (!listItem) {
             res.status(500).send({
@@ -57,16 +57,10 @@ exports.findOne = (req, res) => {
 
 // update a db list items
 exports.updateOne = (req, res) => {
-    // // Validate Request
-    // if (!req.params.content) {
-    //     return res.status(400).send({
-    //         message: "List content can not be empty"
-    //     });
-    // }
-
-    List.findByIdAndUpdate(req.params.itemId, {
-            item: req.params.itemTitle || "Untitled Note",
-            description: req.params.itemDescription || "No description"
+    List.findByIdAndUpdate(req.body.item, {
+            item: req.body.item || "Untitled Note",
+            description: req.body.description || "No description",
+            deadline: req.body.deadline || "No deadline"
         }, { new: true })
         .then(listItem => {
             if (!listItem) {
@@ -90,7 +84,7 @@ exports.updateOne = (req, res) => {
 
 // delete one db list items
 exports.deleteOne = (req, res) => {
-    List.findByIdAndRemove(req.params.itemId)
+    List.findByIdAndRemove(req.body.itemId)
         .then(listItem => {
             if (!listItem) {
                 return res.status(404).send({

@@ -21,9 +21,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+// serving static files in express
+app.use(express.static('public'));
+
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({ "message": "Welcome to lista application. Take notes quickly. Organize and keep track of all your todos." });
+    res.redirect('/list');
+    // uncomment the line below to display results in postman.
+    // res.json({ "message": "Welcome to lista application. Take notes quickly. Organize and keep track of all your todos." });
 });
 
 //====================================== requiring list routes ========================================//

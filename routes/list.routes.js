@@ -3,12 +3,10 @@
 module.exports = app => {
     const list = require('../controllers/list.controller');
 
-    // app routes
+    //========================================== app list routes ============================================//
     app.route('/list')
         // returns all the list items.
         .get(list.findAll) //working
-        // creates a new list item.
-        .post(list.create) //working
         // delete all the list items
         .delete(list.deleteAll); //working
 
@@ -18,9 +16,27 @@ module.exports = app => {
     // return list item given an itemId
     app.get('/list/:itemId', list.findOne); //working
 
-    // update list item given an itemId
-    app.put('/list/:itemId.:itemTitle.:itemDescription', list.updateOne); //working
 
     // delete list item given an itemId
     app.delete('/list/:itemId', list.deleteOne); //working
+
+
+    //========================================== app create routes ==========================================//
+    app.route('/create')
+        // displays the create view
+        .get((req, res) => {
+            res.render(__dirname + './../public/views/createlist.views.ejs');
+        })
+        // creates a new list item.
+        .post(list.create); //working
+
+
+    //========================================== app update routes ==========================================//
+    app.route('/update')
+        .get((req, res) => {
+            res.render(__dirname + './../public/views/createlist.views.ejs', {});
+        })
+        // update list item given an itemId
+        .put(list.updateOne); //working
+
 };
