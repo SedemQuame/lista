@@ -21,7 +21,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     List.find({}).
     then(list => {
-        res.render(__dirname + './../public/views/list.views.ejs', { lists: list });
+        res.render(__dirname + './../public/views/list/list.views.ejs', { lists: list });
     }).
     catch(err => {
         res.status(500).send({
@@ -43,7 +43,7 @@ exports.findOne = (req, res) => {
         }
         console.log(listItem);
 
-        // res.render(__dirname + './../public/views/createlist.views.ejs');
+        // res.render(__dirname + './../public/views/list/createlist.views.ejs');
         res.render(listItem);
     }).
     catch(err => {

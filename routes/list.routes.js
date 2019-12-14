@@ -21,7 +21,7 @@ module.exports = app => {
     app.route('/create')
         // displays the create view
         .get((req, res) => {
-            res.render(__dirname + './../public/views/createlist.views.ejs');
+            res.render(__dirname + './../public/views/list/createlist.views.ejs');
         })
         // creates a new list item.
         .post(list.create); //working

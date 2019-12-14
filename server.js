@@ -1,4 +1,5 @@
 // jshint esversion: 6
+require('dotenv').config();
 
 // requiring modules
 const express = require('express');
@@ -30,6 +31,8 @@ app.get('/', (req, res) => {
 
 //====================================== requiring list routes ========================================//
 require('./routes/list.routes')(app);
+require('./routes/weather.routes')(app);
+
 
 // listening port
 let port = 8080;
