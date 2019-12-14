@@ -13,12 +13,8 @@ module.exports = app => {
     // creating new list items with params
     app.post('/list/:item.:description.:deadline', list.create); //working
 
-    // return list item given an itemId
-    app.get('/list/:itemId', list.findOne); //working
-
-
-    // delete list item given an itemId
-    app.delete('/list/:itemId', list.deleteOne); //working
+    // // return list item given an itemId
+    // app.get('/list/:itemId', list.findOne); //working
 
 
     //========================================== app create routes ==========================================//
@@ -33,10 +29,12 @@ module.exports = app => {
 
     //========================================== app update routes ==========================================//
     app.route('/update')
-        .get((req, res) => {
-            res.render(__dirname + './../public/views/createlist.views.ejs', {});
-        })
+        .get(list.updateOne)
         // update list item given an itemId
-        .put(list.updateOne); //working
+        .post(list.findOne); //working
 
+    //========================================== app delete routes ==========================================//
+
+    app.route('/delete')
+        .post(list.deleteOne);
 };

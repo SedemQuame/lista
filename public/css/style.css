@@ -1,20 +1,27 @@
 #hero-pane {
-    height: 35vh;
+    height: 30vh;
+    background-color: #d3d3d3;
 }
 
 #list-pane {
-    z-index: 1000;
-    width: 90%;
-    max-height: 55vh;
-    min-height: 55vh;
-    margin-top: -15vh;
+    position: absolute;
+    top: 20vh;
+    z-index: 10000;
+    max-height: 65vh;
+    min-height: 65vh;
+    padding: 0 5%;
+    padding-top: 15px;
     background-color: #fff;
     border: 1px solid #d3d3d3;
     overflow-y: auto;
 }
 
-.date-time {
-    margin: 15px 0;
+#add-pane {
+    position: absolute;
+    bottom: 3vh;
+    height: 10vh;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
 }
 
 .day {
@@ -41,22 +48,49 @@
     font-weight: bold;
 }
 
-.add-btn {
-    height: 40px;
+.remove-btn {
+    height: 20px;
     width: auto;
 }
 
 .add-item {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8px;
-    width: 10%;
-    height: 5vh;
+    text-align: center;
+}
+
+.add-btn {
+    height: 6vh;
+    width: auto;
+    margin-top: 1vh;
+}
+
+.btn {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.list-item {
+    margin: 5px 0;
+    padding: 5px;
+    font-size: small;
+    vertical-align: middle;
+    color: #535c68;
+}
+
+.list-header {
+    font-size: small;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.list-headers-pane {
+    padding: 5px 0;
 }
 
 .list-item-pane {
-    border: 1px solid #d3d3d3;
-    margin: 5px 0;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 5px;
 }
 
 .create-forms {

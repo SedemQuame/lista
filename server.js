@@ -6,9 +6,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const db = require('./config/database.config');
 
-//====================================requiring custom user models====================================//
-const Todo = require('./models/list.models');
-
 //creating app
 const app = express();
 

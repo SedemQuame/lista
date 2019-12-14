@@ -6,7 +6,6 @@ const List = require('../models/list.models');
 
 // create and save new list item
 exports.create = (req, res) => {
-
     const itemTitle = req.body.item || 'Untitled';
     const description = req.body.description || 'No description';
     const deadline = req.body.deadline || '25-12-2019';
@@ -22,7 +21,6 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     List.find({}).
     then(list => {
-        console.log(list);
         res.render(__dirname + './../public/views/list.views.ejs', { lists: list });
     }).
     catch(err => {
@@ -34,14 +32,19 @@ exports.findAll = (req, res) => {
 
 // return a db list items
 exports.findOne = (req, res) => {
-    List.findById(req.body._id).
+    console.log(req.body.itemId);
+
+    List.findById(req.body.itemId).
     then(listItem => {
         if (!listItem) {
             res.status(500).send({
                 message: err.message || "Some error occurred while retrieving a list item."
             });
         }
-        res.send(listItem);
+        console.log(listItem);
+
+        // res.render(__dirname + './../public/views/createlist.views.ejs');
+        res.render(listItem);
     }).
     catch(err => {
         if (err.kind === 'ObjectId') {
@@ -57,7 +60,7 @@ exports.findOne = (req, res) => {
 
 // update a db list items
 exports.updateOne = (req, res) => {
-    List.findByIdAndUpdate(req.body.item, {
+    List.findByIdAndUpdate(req.body.itemId, {
             item: req.body.item || "Untitled Note",
             description: req.body.description || "No description",
             deadline: req.body.deadline || "No deadline"
@@ -91,7 +94,8 @@ exports.deleteOne = (req, res) => {
                     message: "listItem not found with id " + req.params.itemId
                 });
             }
-            res.send({ message: "listItem deleted successfully!" });
+            // res.send({ message: "listItem deleted successfully!" });
+            res.redirect('/list');
         }).catch(err => {
             if (err.kind === 'ObjectId' || err.name === 'NotFound') {
                 return res.status(404).send({

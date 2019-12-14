@@ -1,19 +1,42 @@
 <!-- jshint esverion:6 -->
 <%- include('partials/header') -%>
 
-    <div class="jumbotron" id="hero-pane">
+    <div class="" id="hero-pane">
+        <img src="" alt="">
+    </div>
+
+    <div class="container offset-1 col-10 offset-1" id="list-pane">
         <form class="create-forms" action="/create" method="POST">
-            <label for="">Title</label>
-            <input type="text" class="form-control" placeholder="title" name="item">
+            <p class="text-center">Add a new list item</p>
 
-            <label for="">Description</label>
-            <input type="text" class="form-control" placeholder="description" name="description">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" placeholder="title" name="item">
+            </div>
 
-            <label for="">Deadline</label>
-            <input type="text" class="form-control" placeholder="deadline" name="deadline">
+            <div class="form-group">
+                <label for="">Description</label>
+                <input type="text" class="form-control" placeholder="description" name="description">
+            </div>
 
-            <input type="submit" class="btn btn-success" value="Submit">
+            <div class="form-group">
+                <label for="">Deadline</label>
+                <input type="text" class="form-control" placeholder="deadline" name="deadline">
+            </div>
+
+            <br>
+            <input class="btn btn-block btn-outline-success" id="create-doc" type="submit" value="create">
+
         </form>
     </div>
+
+    <div class="container offset-1 col-10 offset-1" id="add-pane">
+        <form class="form add-item " action="/ " method="GET ">
+            <button type="submit " class="btn" id="add-btn">
+                    <img class="add-btn " src="../assets/images/clipboard.svg " alt="add-item ">
+            </button>
+        </form>
+    </div>
+
 
     <%- include('partials/footer') -%>
