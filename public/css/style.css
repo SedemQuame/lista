@@ -53,6 +53,13 @@
     width: auto;
 }
 
+.weather-btn {
+    vertical-align: middle;
+    margin-top: 10px;
+    height: 20px;
+    width: auto;
+}
+
 .add-item {
     text-align: center;
 }
@@ -96,4 +103,8 @@
 .create-forms {
     background-color: #fff;
     height: 55vh;
+}
+
+.weather-pane {
+    margin-bottom: 20px;
 }

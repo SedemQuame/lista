@@ -24,9 +24,10 @@ app.use(express.static('public'));
 
 // define a simple route
 app.get('/', (req, res) => {
-    res.redirect('/list');
     // uncomment the line below to display results in postman.
     // res.json({ "message": "Welcome to lista application. Take notes quickly. Organize and keep track of all your todos." });
+
+    res.redirect('/list');
 });
 
 //====================================== requiring list routes ========================================//

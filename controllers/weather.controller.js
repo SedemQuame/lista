@@ -18,8 +18,8 @@ const darksky = new DarkSky(process.env.DARK_SKY); // Your API KEY can be hardco
 
 // use
 const position = {
-    latitude: 24.269501,
-    longitude: 3.762658
+    latitude: 16.518237,
+    longitude: 20.270221
 };
 
 
@@ -34,7 +34,6 @@ exports.retrieve = (req, res) => {
         .then(info => {
             weather.find({ flag: true }, (err, docs) => {
                 if (!docs.length) {
-                    console.log('creating model');
                     weather.create({
                             timezone: info.timezone,
                             summary: info.currently.summary,
@@ -44,14 +43,13 @@ exports.retrieve = (req, res) => {
                             pressure: info.currently.pressure,
                             visibility: info.currently.visibility,
                             flag: true
-                        }).then((weather) => {
-                            res.send({ msg: 'Doc creation successful 😎😎😎' });
+                        }).then((info) => {
+                            res.render(__dirname + './../public/views/weather/weather.views.ejs', { weather: info });
                         })
                         .catch((err) => {
                             res.send({ msg: 'Error occurred, when creating doc 😫😫😫' + err });
                         });
                 } else {
-                    console.log('update model');
                     weather.updateOne({ flag: true }, {
                             timezone: info.timezone,
                             summary: info.currently.summary,
@@ -61,8 +59,15 @@ exports.retrieve = (req, res) => {
                             pressure: info.currently.pressure,
                             visibility: info.currently.visibility,
                             flag: true
-                        }).then((weather) => {
-                            res.send({ msg: 'Doc update successful 😎😎😎' });
+                        }).then(() => {
+                            // query bb, for information.
+                            weather.find({ flag: true }, (err, info) => {
+                                if (!err) {
+                                    res.render(__dirname + './../public/views/weather/weather.views.ejs', { weather: info });
+                                } else {
+                                    res.send({ msg: 'Error occurred, when update doc 😫😫😫' + err });
+                                }
+                            });
                         })
                         .catch((err) => {
                             res.send({ msg: 'Error occurred, when update doc 😫😫😫' + err });

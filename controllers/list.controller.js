@@ -8,7 +8,7 @@ const List = require('../models/list.models');
 exports.create = (req, res) => {
     const itemTitle = req.body.item || 'Untitled';
     const description = req.body.description || 'No description';
-    const deadline = req.body.deadline || '25-12-2019';
+    const deadline = req.body.deadline || undefined;
 
     List.create({ item: itemTitle, description: description, deadline: deadline }).then(list => {
         res.redirect('/list');
@@ -61,9 +61,9 @@ exports.findOne = (req, res) => {
 // update a db list items
 exports.updateOne = (req, res) => {
     List.findByIdAndUpdate(req.body.itemId, {
-            item: req.body.item || "Untitled Note",
-            description: req.body.description || "No description",
-            deadline: req.body.deadline || "No deadline"
+            item: req.body.item || undefined,
+            description: req.body.description || undefined,
+            deadline: req.body.deadline || undefined
         }, { new: true })
         .then(listItem => {
             if (!listItem) {
