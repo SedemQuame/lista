@@ -17,6 +17,7 @@
     "jquery": "^3.4.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.8.0",
+    "newsapi": "^2.4.0",
     "popper.js": "^1.16.0",
     "tether": "^1.4.7"
   },

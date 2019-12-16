@@ -14,9 +14,11 @@ const db = require('../config/database.config');
 mongoose.connect(db.url, { useUnifiedTopology: true, useNewUrlParser: true });
 
 // Dark Sky Api Configuration
-const darksky = new DarkSky(process.env.DARK_SKY); // Your API KEY can be hardcoded, but I recommend setting it as an env variable.
+// Your API KEY can be hardcoded, but I recommend setting it as an env variable.
+const darksky = new DarkSky(process.env.DARK_SKY);
 
 // use
+// change position, to get user information
 const position = {
     latitude: 16.518237,
     longitude: 20.270221

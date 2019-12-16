@@ -1,13 +1,28 @@
 #hero-pane {
-    height: 30vh;
+    height: 35vh;
     background-color: #d3d3d3;
+    /* position: absolute;
+    top: 0; */
 }
 
 #list-pane {
     position: absolute;
     top: 20vh;
-    z-index: 10000;
+    z-index: 100;
     max-height: 65vh;
+    min-height: 65vh;
+    padding: 0 5%;
+    padding-top: 15px;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    overflow-y: auto;
+}
+
+#news-pane {
+    position: absolute;
+    top: 20vh;
+    z-index: 100;
+    /* max-height: 65vh; */
     min-height: 65vh;
     padding: 0 5%;
     padding-top: 15px;
@@ -22,6 +37,14 @@
     height: 10vh;
     background-color: #fff;
     border: 1px solid #d3d3d3;
+}
+
+.card {
+    border: 0;
+}
+
+.list-unstyled {
+    color: #fff;
 }
 
 .day {
@@ -107,4 +130,8 @@
 
 .weather-pane {
     margin-bottom: 20px;
+}
+
+nav {
+    z-index: 1000;
 }

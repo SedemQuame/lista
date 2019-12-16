@@ -22,17 +22,20 @@ app.use(bodyParser.json());
 // serving static files in express
 app.use(express.static('public'));
 
+//====================================== requiring list routes ========================================//
+require('./routes/list.routes')(app);
+require('./routes/weather.routes')(app);
+require('./routes/anime.routes')(app);
+require('./routes/news.routes')(app);
+
+
 // define a simple route
 app.get('/', (req, res) => {
     // uncomment the line below to display results in postman.
     // res.json({ "message": "Welcome to lista application. Take notes quickly. Organize and keep track of all your todos." });
 
-    res.redirect('/list');
+    res.redirect('/anime');
 });
-
-//====================================== requiring list routes ========================================//
-require('./routes/list.routes')(app);
-require('./routes/weather.routes')(app);
 
 
 // listening port

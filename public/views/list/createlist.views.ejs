@@ -6,9 +6,10 @@
     </div>
 
     <div class="container offset-1 col-10 offset-1" id="list-pane">
+        <p class="lead display-4 text-center">
+            Add list item
+        </p>
         <form class="create-forms" action="/create" method="POST">
-            <p class="text-center">Add a new list item</p>
-
             <div class="form-group">
                 <label for="">Title</label>
                 <input type="text" class="form-control" placeholder="title" name="item">
@@ -31,7 +32,7 @@
     </div>
 
     <div class="container offset-1 col-10 offset-1" id="add-pane">
-        <form class="form add-item " action="/ " method="GET ">
+        <form class="form add-item " action="/list " method="GET ">
             <button type="submit " class="btn" id="add-btn">
                     <img class="add-btn " src="../../assets/images/clipboard.svg " alt="add-item ">
             </button>

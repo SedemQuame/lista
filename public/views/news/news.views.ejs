@@ -1,0 +1,39 @@
+<!-- jshint esverion:6 -->
+<%- include('./../partials/header') -%>
+    <div class="" id="hero-pane">
+        <img src="" alt="">
+    </div>
+
+
+    <div class="container offset-1 col-10 offset-1" id="news-pane">
+        <p class="lead display-4 text-center">
+            News
+        </p>
+
+        <a class="list-unstyled badge badge-dark" href="/news_headlines">News Headline</a class="">
+
+        <a class="list-unstyled badge badge-dark" href="/everything_news">Everything</a>
+
+        <br>
+
+
+        <div class="row">
+
+            <% for(let i=0; i < articles.length; i++) { %>
+                <div class="card col-12 col-md-4">
+                    <img src="<%= articles[i].urlToImage %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= articles[i].title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= articles[i].description %>
+                        </p>
+                        <a href="<%= articles[i].url %>" class="btn btn-dark btn-block text-dark">Read</a>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+    <%- include('./../partials/footer') -%>
