@@ -11,4 +11,8 @@ module.exports = app => {
     app.route('/everything_news')
         // return all news headlines
         .get(news.everything);
+
+    app.route('/query_news')
+        // query news feed
+        .get(news.querynews);
 };

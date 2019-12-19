@@ -1,85 +1,82 @@
 <!-- jshint esverion:6 -->
 <%- include('./../partials/header') -%>
+    <%- include('./../partials/hero_image') -%>
 
-    <div class="" id="hero-pane">
-        <img src="" alt="">
-    </div>
+        <div class="container offset-1 col-10 offset-1" id="list-pane">
+            <p class="lead display-4 text-center">
+                Weather
+            </p>
+            <div class="row list-item-pane weather-pane">
+                <div class="col-5">
+                    <p class="text-left list-item list-header">
+                        timezone
+                    </p>
+                </div>
+                <div class="col-5">
+                    <p class="text-center list-item">
+                        <%- weather[0].timezone %>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <img class="weather-btn" src="./../assets/images/worldwide.svg" alt="add-item">
+                </div>
+            </div>
 
-    <div class="container offset-1 col-10 offset-1" id="list-pane">
-        <p class="lead display-4 text-center">
-            Weather
-        </p>
-        <div class="row list-item-pane weather-pane">
-            <div class="col-5">
-                <p class="text-left list-item">
-                    timezone
-                </p>
+            <div class="row list-item-pane weather-pane">
+                <div class="col-5">
+                    <p class="text-left list-item list-header">
+                        summary
+                    </p>
+                </div>
+                <div class="col-5">
+                    <p class="text-center list-item">
+                        <%- weather[0].summary %>
+                    </p>
+                </div>
+                <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/script.svg" alt="add-item"></span>
+                </div>
             </div>
-            <div class="col-5">
-                <p class="text-center list-item">
-                    <%- weather[0].timezone %>
-                </p>
+
+            <div class="row list-item-pane weather-pane">
+                <div class="col-5">
+                    <p class="text-left list-item list-header">
+                        temperature
+                    </p>
+                </div>
+                <div class="col-5">
+                    <p class="text-center list-item">
+                        <%- weather[0].temperature %>
+                    </p>
+                </div>
+                <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/temperature.svg" alt="add-item"></span></div>
             </div>
-            <div class="col-2">
-                <img class="weather-btn" src="./../assets/images/worldwide.svg" alt="add-item">
+
+            <div class="row list-item-pane weather-pane">
+                <div class="col-5">
+                    <p class="text-left list-item list-header">
+                        humidity
+                    </p>
+                </div>
+                <div class="col-5">
+                    <p class="text-center list-item">
+                        <%- weather[0].humidity %>
+                    </p>
+                </div>
+                <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/humidity.svg" alt="add-item"></span></div>
+            </div>
+
+            <div class="row list-item-pane weather-pane">
+                <div class="col-5">
+                    <p class="text-left list-item list-header">
+                        visibility
+                    </p>
+                </div>
+                <div class="col-5">
+                    <p class="text-center list-item">
+                        <%- weather[0].visibility %>
+                    </p>
+                </div>
+                <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/eye.svg" alt="add-item"></span></div>
             </div>
         </div>
-
-        <div class="row list-item-pane weather-pane">
-            <div class="col-5">
-                <p class="text-left list-item">
-                    summary
-                </p>
-            </div>
-            <div class="col-5">
-                <p class="text-center list-item">
-                    <%- weather[0].summary %>
-                </p>
-            </div>
-            <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/script.svg" alt="add-item"></span>
-            </div>
-        </div>
-
-        <div class="row list-item-pane weather-pane">
-            <div class="col-5">
-                <p class="text-left list-item">
-                    temperature
-                </p>
-            </div>
-            <div class="col-5">
-                <p class="text-center list-item">
-                    <%- weather[0].temperature %>
-                </p>
-            </div>
-            <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/temperature.svg" alt="add-item"></span></div>
-        </div>
-
-        <div class="row list-item-pane weather-pane">
-            <div class="col-5">
-                <p class="text-left list-item">
-                    humidity
-                </p>
-            </div>
-            <div class="col-5">
-                <p class="text-center list-item">
-                    <%- weather[0].humidity %>
-                </p>
-            </div>
-            <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/humidity.svg" alt="add-item"></span></div>
-        </div>
-
-        <div class="row list-item-pane weather-pane">
-            <div class="col-5">
-                <p class="text-left list-item">
-                    visibility
-                </p>
-            </div>
-            <div class="col-5">
-                <p class="text-center list-item">
-                    <%- weather[0].visibility %>
-                </p>
-            </div>
-            <div class="col-2"><span class="text-left list-item"> <img class="weather-btn" src="./../assets/images/eye.svg" alt="add-item"></span></div>
-        </div>
-    </div>
-    <%- include('./../partials/footer') -%>
+        <%- include('./../partials/footer') -%>

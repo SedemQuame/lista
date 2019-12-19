@@ -48,14 +48,25 @@ exports.everything = (req, res) => {
             res.render(__dirname + './../public/views/news/news.views.ejs', { articles: response.articles });
         }
     });
-    // // To query sources
-    // // All options are optional
-    // newsapi.v2.sources({
-    //     category: 'technology',
-    //     language: 'en',
-    //     country: 'us'
-    // }).then(response => {
-    //     console.log(response);
+};
 
-    // });
+exports.querynews = (req, res) => {
+    // To query /v2/everything
+    // You must include at least one q, source, or domain
+    newsapi.v2.everything({
+        q: '' + req.body.query_string,
+        language: 'en',
+        qInTitle: req.body.query_string,
+        sources: 'abc-news, ars-technica, bbc-news, bbc-sport',
+        domains: '',
+    }).then(response => {
+        if (response.status == 'ok') {
+            // redirecting to news template, and passing articles.
+            res.render(__dirname + './../public/views/news/news.views.ejs', { articles: response.articles });
+        }
+    }).catch(err => {
+        console.log('error occured: ');
+        console.log(err);
+        res.render(__dirname + './../public/views/news/news.views.ejs', { articles: err });
+    });
 };

@@ -1,5 +1,8 @@
 // jshint esversion:6
 //====================================== requiring modules ===========================================//
+// node modules
+
+// custom modules
 const List = require('../models/list.models');
 
 //================================== creating HTTP handler methods ==================================//

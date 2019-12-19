@@ -1,6 +1,6 @@
 #hero-pane {
     height: 35vh;
-    background-color: #d3d3d3;
+    /* background-color: #d3d3d3; */
     /* position: absolute;
     top: 0; */
 }
@@ -134,4 +134,12 @@
 
 nav {
     z-index: 1000;
+}
+
+.random_hero_img {
+    height: 100%;
+    width: 100%;
+    /* background-position: center; */
+    /* background-size: contain; */
+    background-clip: border-box;
 }

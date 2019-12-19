@@ -5,13 +5,19 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const request = require('request');
+const fs = require('fs');
+
 const db = require('./config/database.config');
 
-//creating app
-const app = express();
+//requesting random image and downloading it.
+request('https://source.unsplash.com/1600x700/?abstract,space').pipe(fs.createWriteStream('public/assets/doodle.png'));
 
 // creating mongoose connection to db
 mongoose.connect(db.url, { useUnifiedTopology: true, useNewUrlParser: true });
+
+//creating app
+const app = express();
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,8 +39,7 @@ require('./routes/news.routes')(app);
 app.get('/', (req, res) => {
     // uncomment the line below to display results in postman.
     // res.json({ "message": "Welcome to lista application. Take notes quickly. Organize and keep track of all your todos." });
-
-    res.redirect('/anime');
+    res.redirect('/list');
 });
 
 

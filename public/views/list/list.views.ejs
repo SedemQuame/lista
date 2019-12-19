@@ -1,89 +1,86 @@
 <!-- jshint esverion:6 -->
 <%- include('./../partials/header') -%>
+    <%- include('./../partials/hero_image') -%>
 
-    <div class="" id="hero-pane">
-        <img src="" alt="">
-    </div>
-
-    <div class="container offset-1 col-10 offset-1" id="list-pane">
-        <p class="lead display-4 text-center">
-            Todo list
-        </p>
-        <div class="">
-            <p class="text-center">
-                <span class="">16</span>
-                <span class="">December</span>
-                <span class="">2019</span>
+        <div class="container offset-1 col-10 offset-1" id="list-pane">
+            <p class="lead display-4 text-center">
+                Todo list
             </p>
-        </div>
-
-        <p>Todo Header</p>
-        <!-- view for screen width > md. -->
-        <div class="d-none d-md-block">
-            <div class="row list-headers-pane">
-                <div class="col-4 list-header"><span>Title</span></div>
-                <div class="col-5 list-header"><span>Description</span></div>
-                <div class="col-2 list-header"><span>Deadline</span></div>
-                <div class="col-1 list-header"><span>Delete</span></div>
+            <div class="">
+                <p class="text-center">
+                    <span class="">16</span>
+                    <span class="">December</span>
+                    <span class="">2019</span>
+                </p>
             </div>
-            <% if (lists) { %>
-                <% for(let i = 0; i < lists.length; i++) { %>
-                    <div class="row list-item-pane">
-                        <div class="col-4 list-item">
-                            <%= lists[i].item %>
-                        </div>
-                        <div class="col-5 list-item">
-                            <%= lists[i].description %>
-                        </div>
-                        <div class="col-2 list-item">
-                            <%= lists[i].deadline %>
-                        </div>
-                        <form class="col-1 btn-group" action="/delete" method="POST">
-                            <input type="hidden" name="itemId" value="<%= lists[i]._id %>">
-                            <button type="submit" class="btn">
+
+            <p>Todo Header</p>
+            <!-- view for screen width > md. -->
+            <div class="d-none d-md-block">
+                <div class="row list-headers-pane">
+                    <div class="col-2 list-header"><span>Title</span></div>
+                    <div class="col-7 list-header"><span>Description</span></div>
+                    <div class="col-2 list-header"><span>Deadline</span></div>
+                    <div class="col-1 list-header"><span>Delete</span></div>
+                </div>
+                <% if (lists) { %>
+                    <% for(let i = 0; i < lists.length; i++) { %>
+                        <div class="row list-item-pane">
+                            <div class="col-2 list-item">
+                                <%= lists[i].item %>
+                            </div>
+                            <div class="col-7 list-item">
+                                <%= lists[i].description %>
+                            </div>
+                            <div class="col-2 list-item">
+                                <%= lists[i].deadline %>
+                            </div>
+                            <form class="col-1 btn-group" action="/delete" method="POST">
+                                <input type="hidden" name="itemId" value="<%= lists[i]._id %>">
+                                <button type="submit" class="btn">
                                 <img class="remove-btn" src="./../assets/images/bin.svg" alt="add-item">
                             </button>
-                        </form>
-                    </div>
-                    <% } %>
+                            </form>
+                        </div>
                         <% } %>
-        </div>
+                            <% } %>
+            </div>
 
-        <!-- view for screen width < md. -->
-        <div class="d-block d-md-none">
-            <% if (lists) { %>
-                <% for(let i = 0; i < lists.length; i++) { %>
-                    <div class="row list-item-pane">
-                        <div class="col-12 list-item">
-                            <b>Title:</b>
-                            <%= lists[i].item %>
-                        </div>
-                        <div class="col-12 list-item">
-                            <b>Description:</b>
-                            <%= lists[i].description %>
-                        </div>
-                        <div class="col-12 list-item">
-                            <b>Deadline:</b>
-                            <%= lists[i].deadline %>
-                        </div>
-                        <form class="col-12" action="/delete" method="POST">
-                            <button type="submit" class="btn btn-block">
+            <!-- view for screen width < md. -->
+            <div class="d-block d-md-none">
+                <% if (lists) { %>
+                    <% for(let i = 0; i < lists.length; i++) { %>
+                        <div class="row list-item-pane">
+                            <div class="col-12 list-item">
+                                <b>Title:</b>
+                                <%= lists[i].item %>
+                            </div>
+                            <div class="col-12 list-item">
+                                <b>Description:</b>
+                                <%= lists[i].description %>
+                            </div>
+                            <div class="col-12 list-item">
+                                <b>Deadline:</b>
+                                <%= lists[i].deadline %>
+                            </div>
+                            <form class="col-12" action="/delete" method="POST">
+                                <button type="submit" class="btn btn-block">
                                 <img class="remove-btn" src="./../assets/images/bin.svg" alt="add-item">
                             </button>
-                            <input type="hidden" name="itemId" value="<%= lists[i]._id %>">
-                        </form>
-                    </div>
-                    <% } %>
+                                <input type="hidden" name="itemId" value="<%= lists[i]._id %>">
+                            </form>
+                        </div>
                         <% } %>
+                            <% } %>
+            </div>
         </div>
-    </div>
 
-    <div class="container offset-1 col-10 offset-1" id="add-pane">
-        <form class="form add-item " action="/create " method="GET ">
-            <button type="submit " class="btn" id="add-btn">
+        <div class="container offset-1 col-10 offset-1" id="add-pane">
+            <form class="form add-item " action="/create " method="GET ">
+                <button type="submit " class="btn" id="add-btn">
                     <img class="add-btn " src="../assets/images/plus.svg " alt="add-item ">
             </button>
-        </form>
-    </div>
+            </form>
+        </div>
 
-    <%- include('./../partials/footer') -%>
+        <%- include('./../partials/footer') -%>
